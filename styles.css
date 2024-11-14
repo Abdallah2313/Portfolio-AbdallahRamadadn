@@ -1,0 +1,212 @@
+/* إعدادات عامة */
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+}
+
+/* الهيدر */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem; /* تعديل من em إلى rem */
+}
+
+.header-icons a img {
+    width: 3rem; /* حجم مرن يناسب الشاشات المختلفة */
+    margin: 0 1rem;
+}
+
+.editor-photo {
+    width: 10rem; /* استخدام rem للتوافق */
+    border-radius: 50%;
+}
+
+.editor-name {
+    color: #1e90ff;
+}
+
+/* صندوق "Video Editing" */
+.flashing-box {
+    border: 2px solid #1e90ff;
+    padding: 0.5rem;
+    margin: 1rem auto;
+    width: fit-content;
+    animation: flashing 1s infinite;
+}
+
+.flashing-box p {
+    font-size: 1.5rem;
+    color: #1e90ff;
+}
+
+@keyframes flashing {
+    0%, 100% { border-color: #1e90ff; }
+    50% { border-color: transparent; }
+}
+
+/* قسم المهارات */
+.skills-section {
+    text-align: center;
+    perspective: 1000px;
+}
+
+.cylinder {
+    position: relative;
+    width: 100%; /* جعل العرض يعتمد على حجم الشاشة */
+    max-width: 20rem; /* حد أقصى للعرض */
+    height: 20rem;
+    transform-style: preserve-3d;
+    animation: rotateCylinder 10s linear infinite;
+    margin: 0 auto; /* توسيط الأسطوانة */
+    margin-top: 8%;
+}
+
+.icon {
+    position: absolute;
+    font-size: 2rem; /* حجم مرن للأيقونات */
+    color: #1e90ff;
+    transform-style: preserve-3d;
+}
+
+.icon:nth-child(1) { transform: rotateY(0deg) translateZ(10rem); }
+.icon:nth-child(2) { transform: rotateY(72deg) translateZ(10rem); }
+.icon:nth-child(3) { transform: rotateY(144deg) translateZ(10rem); }
+.icon:nth-child(4) { transform: rotateY(216deg) translateZ(10rem); }
+.icon:nth-child(5) { transform: rotateY(288deg) translateZ(10rem); }
+
+/* تأثير الدوران */
+@keyframes rotateCylinder {
+    from { transform: rotateY(0deg); }
+    to { transform: rotateY(360deg); }
+}
+.container {
+    max-width: 400px;
+    margin-top: -9%;
+    margin-left: 35%;
+
+}
+
+h1 {
+    text-align: center;
+    font-size: 2em;
+}
+
+.software-icons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+    
+}
+
+/* Timeline style */
+.timeline {
+    position: relative;
+    padding: 10px 0;
+    border-left: 2px solid #f31212;
+}
+
+.timeline-event {
+    position: relative;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+}
+
+.timeline-event::before {
+    content: '';
+    position: absolute;
+    left: -11px;
+    width: 20px;
+    height: 20px;
+    background-color: #110eec;
+    border-radius: 50%;
+    top: 5px;
+}
+
+.timeline-event h3 {
+    color: #f57f17;
+    font-size: 1.1em;
+    margin: 0;
+}
+
+.timeline-event p {
+    margin: 5px 0 0 0;
+}
+
+.timeline-line {
+    position: absolute;
+    left: -1px;
+    top: 0;
+    height: 100%;
+    border-left: 2px solid #f57f17;
+    opacity: 0.5;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .timeline-event {
+        padding: 10px;
+    }
+
+    .timeline-event h3 {
+        font-size: 1em;
+    }
+}
+
+/* قسم الفيديوهات */
+.videos-section .videos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* إعداد مرن للشبكة */
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.video-item iframe {
+    width: 100%; /* تمدد العرض ليتناسب مع الشبكة */
+    height: 200px;
+}
+
+/* خط الفاصل */
+.divider {
+    border-top: 2px solid #1e90ff;
+    margin: 1rem 0;
+}
+
+/* قسم الفيديوهات الطويلة */
+.long-videos-section .long-videos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* إعداد مرن للشبكة */
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.long-video-item {
+    border: 2px solid #fff;
+    animation: flashing 1s infinite;
+}
+
+.long-video-item iframe {
+    width: 100%;
+    height: 200px;
+}
+
+/* تحسين العرض على الشاشات الصغيرة */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 1rem;
+    }
+    
+    .cylinder {
+        width: 15rem; /* تصغير حجم الأسطوانة قليلاً */
+        height: 15rem;
+    }
+
+    .videos-section .videos-grid,
+    .long-videos-section .long-videos-grid {
+        grid-template-columns: 1fr; /* عرض عنصر واحد لكل صف */
+    }
+}
